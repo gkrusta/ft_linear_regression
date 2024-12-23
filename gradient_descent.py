@@ -16,14 +16,16 @@ def training(mileage, price):
     m = len(price)
     i = 0
 
-    while (i < 10):
-        predictions = [theta0 + theta1 * x for x in mileage]#first time it's 0
+    while (i < 100):
+        #y = ax + b
+        predictions = [theta0 + theta1 * x for x in mileage] #first time it's 0;
         errors = [predictions - actual for predictions, actual in zip(predictions, price)]
-        print("Errors:", errors)
+        print(f"theta 0 (b): {theta0:.6f} \ntheta 1 (a): {theta1:f}:")
         temp0 = learning_rate * 1 / m * sum(errors)
-        print("temp0:", temp0)
+        print(f"temp0: {temp0:f}")
         temp1 = learning_rate * 1 / m * (sum([errors * mileage for errors, mileage in zip(errors, mileage)]))
-        print("temp1:", temp1)
+        print(f"temp1: {temp1:f}")
+        print("\n-----------\n")
         theta0 = theta0 - temp0
         theta1 = theta1 - temp1
         i += 1
