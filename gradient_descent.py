@@ -32,7 +32,7 @@ def training(mileage, price):
     m = len(price)
     max_iterations = 100
     epsilon = 1e-6
-    plt.figure(figsize = (16,12))
+    plt.figure(figsize = (14,11))
     #plt.scatter(mileage, price, color='blue', label='data points')
     for i in range(max_iterations):
         #y = ax + b
@@ -44,9 +44,9 @@ def training(mileage, price):
         temp1 = learning_rate * 1 / m * (sum([errors * mileage for errors, mileage in zip(errors, mileage)]))
         print(f"temp1: {temp1:f}")
         print("\n-----------\n")
-        theta0 = abs(theta0 - temp0)
+        theta0 = (theta0 - temp0)
         theta1_prev = theta1
-        theta1 = abs(theta1 - temp1)
+        theta1 = (theta1 - temp1)
         if abs(theta1 - theta1_prev) <= epsilon:
             print(f"Cover after {i + 1} iterations")
             break
@@ -63,8 +63,8 @@ def process_file():
     data = pd.read_csv("data.csv")
     arr_mileage = data['km']
     arr_price = data['price']
-    mileage = normalize(data['km'].tolist()) # should normalize the values
-    price = normalize(data['price'].tolist())
+    mileage = (data['km'].tolist()) # should normalize the values
+    price = (data['price'].tolist())
     estimated_intercept, estimated_slope = training(mileage, price)
     y_pred = [estimated_intercept + estimated_slope * x for x in mileage]
     min_price = min(data['price'])
