@@ -2,6 +2,7 @@ import numpy as np
 import pandas as pd
 import json
 import matplotlib.pyplot as plt
+from utils import save_parameters, read_file
 
 
 def visualize():
@@ -69,9 +70,7 @@ def revert_normalize(estimated_intercept, estimated_slope, mileage_mean, mileage
 
 
 def process_file():
-    data = pd.read_csv("data.csv")
-    mileage = data['km'].tolist()
-    price = data['price'].tolist()
+    mileage, price = read_file()
     mileage_mean = np.mean(mileage)
     mileage_std = np.std(mileage)
     mileage_normalized = normalize(mileage, mileage_mean, mileage_std)
@@ -86,19 +85,6 @@ def process_file():
     plt.plot(mileage, regression_line, color='blue', linestyle='dashed', label='Regression line')
     visualize()
     return intercept, slope
-
-
-def save_parameters(theta0, theta1):
-    """
-    Save the trained parameters to a JSON file.
-    """
-    parameters = {"theta0": theta0, "theta1": theta1}
-    try:
-        with open("parameters.txt", "w") as file:
-            json.dump(parameters, "parameters.txt")
-    except Exception as e:
-        print(f"Error: {e}")
-        exit()
 
 
 def main():
