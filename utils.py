@@ -26,7 +26,6 @@ def visualize(mileage, price, regression_line=None):
         print(f"Error: {e}")
 
 
-
 def read_file():
     """
     Open the .csv file and save the mileage and price in a list.

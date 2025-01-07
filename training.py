@@ -3,7 +3,6 @@ import numpy as np
 from utils import save_parameters, read_file, visualize
 
 
-#to always have data in the range (0; 1)
 def normalize(mileage, mileage_mean, mileage_std):
     """
     Normalizes the input mileage data using the z-score normalization formula.
@@ -13,12 +12,12 @@ def normalize(mileage, mileage_mean, mileage_std):
     return [(x - mileage_mean) / mileage_std for x in mileage]
 
 
-# y = theta1 * x + theta0
 def training(mileage, price):
     """
     This function performs linear regression training using
     the gradient descent algorithm to optimize the parameters
     theta0 (intercept) and theta1 (slope).
+    y = theta1 * x + theta0
     """
     learning_rate = 0.02
     theta0 = 0
