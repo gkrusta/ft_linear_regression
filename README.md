@@ -1,5 +1,14 @@
 # ft_linear_regression
-A program that using machine learning algorithm can predict a price of a car based on it's mileage.
+## Overview
+
+The project trains a linear regression model to predict car prices based on mileage using a dataset of mileage-price pairs. The dataset is stored in `data.csv`.
+
+The project includes:
+- **Training Program**: Trains the model and saves parameters for future use.
+- **Prediction Program**: Predicts car prices for given mileage values.
+- **Precision Evaluation Program**: Calculates the precision of the model by comparing predicted prices with actual prices.
+
+---
 
 Why normalization is needed:
 - Without normalization, features with large values (mileage) dominate features with smaller values (price).
@@ -20,3 +29,22 @@ For example, if theta0 = 8499.53, it is the price when the car is new.
 ```
 code
 ```
+
+## Options to execute 
+
+**`training.py`**: Trains the regression model and plots the results in a graph.
+
+**`training.py -d`**: Displays a graph of the distribution of the data (no training).
+
+**`predict.py`**: Predicts car prices based on user-input mileage.
+
+**`precision.py`**: Calculates and displays the precision of the regression model.
+
+
+## **Setup**
+
+### 1. Install Requirements
+This project requires Python and the following libraries:
+- `numpy`
+- `pandas`
+- `matplotlib`
