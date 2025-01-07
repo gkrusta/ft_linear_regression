@@ -1,12 +1,9 @@
-import numpy as np
-import pandas as pd
-import matplotlib.pyplot as plt
 from utils import read_file, load_parameters
 
 
 def get_precisioin(actual_p, predicted_p):
     """
-    Calculate Mean Absolute Error (MAE )in percentage.
+    Calculate Mean Absolute Error (MAE) in percentage.
     """
     total_error = sum(abs((p - a) / a) for p, a in zip(predicted_p, actual_p))
     return total_error / len(actual_p) * 100
