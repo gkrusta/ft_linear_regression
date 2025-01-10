@@ -8,7 +8,7 @@ def visualize(mileage, price, regression_line=None):
     Visualize the data distribution and optionally the regression line.
     """
     try:
-        plt.figure(figsize = (16,12))
+        plt.figure(figsize = (14,10))
         plt.scatter(mileage, price, marker='o', color='red', label='Data points')
         if regression_line is not None:
             plt.plot(mileage, regression_line, color='blue', linestyle='dashed', label='Regression line')
